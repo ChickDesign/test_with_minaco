@@ -1,127 +1,17 @@
-import React from 'react';
-
-const EmojiEffectTable = () => {
-  const emojiEffects = [
-    {
-      category: "感情と雰囲気の調整",
-      color: "bg-red-200",
-      emojis: [
-        { emoji: "😀", effect: "テキストがより明るく楽観的な調子になる傾向がある" },
-        { emoji: "😂", effect: "ユーモアや軽さが増し、より面白い内容が生成されやすくなる" },
-        { emoji: "😍", effect: "愛情や憧れの要素が強調され、感情的な表現が豊かになる" },
-        { emoji: "😢", effect: "悲しみや共感の要素が増え、感動的な内容が生成されやすくなる" },
-        { emoji: "😠", effect: "批判的または対立的な視点が強まり、議論の要素が増える" },
-        { emoji: "😎", effect: "自信に満ちた表現や、クールな描写が増加する" },
-      ]
-    },
-    {
-      category: "行動と活動の促進",
-      color: "bg-blue-200",
-      emojis: [
-        { emoji: "🏃", effect: "動的な描写が増え、アクションや速さに関する表現が強調される" },
-        { emoji: "💪", effect: "努力や決意に関する内容が増加し、挑戦的なトーンになる" },
-        { emoji: "🤝", effect: "協力や合意に関する要素が強調され、団結を示す内容が増える" },
-        { emoji: "🧗", effect: "困難や挑戦に関する描写が詳細になり、克服のプロセスが強調される" },
-        { emoji: "🏆", effect: "成功や達成に焦点が当たり、目標達成に関する内容が増える" },
-        { emoji: "🎨", effect: "創造的なプロセスや芸術的表現に関する詳細が増加する" },
-      ]
-    },
-    {
-      category: "環境と場面の設定",
-      color: "bg-green-200",
-      emojis: [
-        { emoji: "🏞️", effect: "自然環境の詳細な描写が増え、屋外シーンが生き生きと表現される" },
-        { emoji: "🏙️", effect: "都市や現代的な要素が強調され、技術や社会に関する言及が増える" },
-        { emoji: "🏠", effect: "家庭や個人的空間に関する描写が細かくなり、日常生活の要素が増える" },
-        { emoji: "🏫", effect: "教育や学習に関する内容が中心となり、知識共有の要素が強まる" },
-        { emoji: "🏥", effect: "医療や健康に関する話題が増え、ケアや治療に関する詳細が強調される" },
-        { emoji: "🏢", effect: "ビジネスや組織に関する文脈が強まり、専門的な表現が増える" },
-      ]
-    },
-    {
-      category: "概念と思考の誘導",
-      color: "bg-purple-200",
-      emojis: [
-        { emoji: "💡", effect: "革新的なアイデアや解決策に焦点が当たり、創造的思考が促進される" },
-        { emoji: "🔍", effect: "詳細な分析や調査に関する内容が増え、探求的な表現が強まる" },
-        { emoji: "🎭", effect: "感情表現や演技に関する描写が豊かになり、多面的な解釈が示される" },
-        { emoji: "⚖️", effect: "公平性や倫理的考察に重点が置かれ、バランスの取れた議論が展開される" },
-        { emoji: "🔮", effect: "未来予測や仮説に関する内容が増え、想像力豊かなシナリオが生成される" },
-        { emoji: "🧩", effect: "論理的思考や問題解決のプロセスが詳細に描写される" },
-      ]
-    },
-    {
-      category: "コミュニケーションの形式",
-      color: "bg-yellow-200",
-      emojis: [
-        { emoji: "💬", effect: "対話形式の内容が増え、会話のやり取りがより自然に生成される" },
-        { emoji: "📢", effect: "宣言や重要な発表の形式が強調され、インパクトのある表現が増える" },
-        { emoji: "🤫", effect: "秘密や機密情報に関する要素が増え、慎重な表現が多くなる" },
-        { emoji: "👂", effect: "傾聴や情報収集に焦点が当たり、詳細な観察や理解が示される" },
-        { emoji: "✍️", effect: "文章作成や記録に関する描写が増え、文学的な表現が豊かになる" },
-        { emoji: "🗣️", effect: "スピーチや公の場での発言形式が強調され、説得力のある表現が増える" },
-      ]
-    },
-    {
-      category: "時間と進行の表現",
-      color: "bg-pink-200",
-      emojis: [
-        { emoji: "⏳", effect: "時間経過や待機に関する描写が増え、プロセスの詳細が強調される" },
-        { emoji: "🚀", effect: "速さや進歩に焦点が当たり、急速な発展や変化が描写される" },
-        { emoji: "🌱", effect: "成長や発展過程に関する詳細な説明が増え、段階的な変化が強調される" },
-        { emoji: "🔄", effect: "繰り返しやサイクルに関する内容が増え、継続的なプロセスが描写される" },
-        { emoji: "⏰", effect: "期限や時間の重要性が強調され、緊急性のある表現が増える" },
-        { emoji: "🍁", effect: "季節変化や時の流れに関する描写が豊かになり、長期的な視点が示される" },
-      ]
-    },
-    {
-      category: "関係性と相互作用",
-      color: "bg-indigo-200",
-      emojis: [
-        { emoji: "❤️", effect: "愛情や深い感情的つながりに関する描写が増え、関係性の深さが強調される" },
-        { emoji: "🤝", effect: "協力や同意に関する内容が増え、チームワークの要素が強調される" },
-        { emoji: "⚔️", effect: "競争や対立に関する描写が増え、緊張感のある状況が生成される" },
-        { emoji: "🧲", effect: "魅力や引力に関する表現が増え、人間関係の動的な側面が描写される" },
-        { emoji: "🌍", effect: "グローバルな視点や広範囲の影響に関する内容が増える" },
-        { emoji: "🔗", effect: "連携や結びつきに関する描写が増え、ネットワークの重要性が強調される" },
-      ]
-    },
-    {
-      category: "象徴と比喩の使用",
-      color: "bg-orange-200",
-      emojis: [
-        { emoji: "🦁", effect: "勇気や力強さを象徴する表現が増え、リーダーシップの要素が強調される" },
-        { emoji: "🌳", effect: "成長や安定を比喩的に表現する内容が増え、長期的な視点が強調される" },
-        { emoji: "🌊", effect: "感情や変化の波を表す比喩が増え、変動的な状況が描写される" },
-        { emoji: "🔥", effect: "情熱や破壊力を象徴する表現が増え、強烈な感情や変化が描写される" },
-        { emoji: "🧭", effect: "方向性や指針を示す比喩が増え、目標や計画に関する内容が強調される" },
-        { emoji: "⚓", effect: "安定や信頼を象徴する表現が増え、確実性や基盤に関する描写が強まる" },
-      ]
-    },
-  ];
-
-  return (
-    <div className="w-full bg-gradient-to-r from-gray-100 to-gray-200 p-6 overflow-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">絵文字がLLM出力に与える影響表</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {emojiEffects.map((category, index) => (
-          <div key={index} className={`${category.color} rounded-xl shadow-lg p-4`}>
-            <h2 className="text-xl font-semibold mb-3 text-gray-800">{category.category}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {category.emojis.map((item, emojiIndex) => (
-                <div key={emojiIndex} className="bg-white rounded-lg p-3 shadow transition duration-300 ease-in-out hover:shadow-md flex items-start">
-                  <span className="text-4xl mr-3 flex-shrink-0" role="img" aria-label={item.emoji}>
-                    {item.emoji}
-                  </span>
-                  <p className="text-sm text-gray-700">{item.effect}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default EmojiEffectTable;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>絵文字が LLM 出力に与える影響表</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-200">
+  <div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mt-10 mb-20 text-center text-gray-800">絵文字が LLM 出力に与える影響表</h1>
+    <div id="emojiEffectTable" class="grid grid-cols-1 lg:grid-cols-1"><div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

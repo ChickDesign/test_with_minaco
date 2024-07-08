@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.emoji-item {
+  transition: box-shadow 0.3s ease-in-out;
+}
+.emoji-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
